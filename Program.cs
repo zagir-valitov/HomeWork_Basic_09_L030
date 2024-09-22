@@ -5,12 +5,23 @@ Console.WriteLine(" ---- Home work 9 ----\n");
 var imageDownloader = new ImageDownloader();
 imageDownloader.ImageStarted += DisplayStartedMessage;
 imageDownloader.ImageCompleted += DisplayCompletedMessage;
-imageDownloader.Download("BigPic_1.jpg", "https://get.wallhere.com/photo/" +
-    "landscape-mountains-lake-nature-reflection-grass-sky-river-national-" +
-    "park-valley-wilderness-Alps-tree-autumn-leaf-mountain-season-tarn-lo" +
-    "ch-mountainous-landforms-mountain-range-590185.jpg");
-Console.WriteLine("Press any key to exit");
-Console.Read();
+
+Task task1 = Task.Run(() =>
+{
+    imageDownloader?.Download("BigPic_1.jpg", "https://img2.akspic.ru/crops/8/6/4/5/7/175468/" +
+        "175468-seealpsee-gora-oblako-rastenie-zelenyj-7680x4320.jpg");
+});
+Console.WriteLine("Press \"A\" to exit or any other key to check the download status");
+while(true)
+{
+    var command = Console.ReadLine();
+    if(command == "A")
+    {
+        Console.WriteLine("Exit!");
+        break; 
+    }
+    Console.WriteLine($"Download is completed: {task1.IsCompleted}");
+}
 
 void DisplayStartedMessage(string message)
 {

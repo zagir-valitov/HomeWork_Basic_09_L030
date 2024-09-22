@@ -13,12 +13,12 @@ internal class ImageDownloader
     public event DownloadHandler? ImageStarted;
     public event DownloadHandler? ImageCompleted;
 
-    public void Download(string fileName, string remoteUri)
+    public async Task Download(string fileName, string remoteUri)
     {
         var myWebClient = new WebClient();
         ImageStarted?.Invoke("File downloaded started!");
         Console.WriteLine($"Downloading a {fileName} from {remoteUri}");
-        myWebClient.DownloadFile( remoteUri, fileName );
+        await myWebClient.DownloadFileTaskAsync( remoteUri, fileName );
         Console.WriteLine($"Successfully downloaded a {fileName} from {remoteUri}");
         ImageCompleted?.Invoke("File download completed!");
     }
