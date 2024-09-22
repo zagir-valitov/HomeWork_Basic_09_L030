@@ -5,16 +5,20 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork_Basic_09_L030
+namespace HomeWork_Basic_09_L030;
+
+internal class ImageDownloader
 {
-    internal class ImageDownloader
+    public delegate void DownloadHandler(string message);
+    public event DownloadHandler? Notify;
+
+    public void Download(string fileName, string remoteUri)
     {
-        public void Download(string fileName, string remoteUri)
-        {
-            var myWebClient = new WebClient();
-            Console.WriteLine($"Downloading a {fileName} from {remoteUri}");
-            myWebClient.DownloadFile( remoteUri, fileName );
-            Console.WriteLine($"Successfully downloaded a {fileName} from {remoteUri}");
-        }
+        var myWebClient = new WebClient();
+        Notify?.Invoke("File downloaded started\n");
+        Console.WriteLine($"Downloading a {fileName} from {remoteUri}");
+        myWebClient.DownloadFile( remoteUri, fileName );
+        Console.WriteLine($"Successfully downloaded a {fileName} from {remoteUri}");
+        Notify?.Invoke("\nFile download completed");
     }
 }
