@@ -10,15 +10,16 @@ namespace HomeWork_Basic_09_L030;
 internal class ImageDownloader
 {
     public delegate void DownloadHandler(string message);
-    public event DownloadHandler? Notify;
+    public event DownloadHandler? ImageStarted;
+    public event DownloadHandler? ImageCompleted;
 
     public void Download(string fileName, string remoteUri)
     {
         var myWebClient = new WebClient();
-        Notify?.Invoke("File downloaded started\n");
+        ImageStarted?.Invoke("File downloaded started!");
         Console.WriteLine($"Downloading a {fileName} from {remoteUri}");
         myWebClient.DownloadFile( remoteUri, fileName );
         Console.WriteLine($"Successfully downloaded a {fileName} from {remoteUri}");
-        Notify?.Invoke("\nFile download completed");
+        ImageCompleted?.Invoke("File download completed!");
     }
 }
