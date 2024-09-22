@@ -9,7 +9,7 @@ namespace HomeWork_Basic_09_L030
 {
     internal class ImageDownloader
     {
-        public void Download(string remoteUri, string fileName)
+        public void Download(string fileName, string remoteUri)
         {
             var myWebClient = new WebClient();
             Console.WriteLine($"Downloading a {fileName} from {remoteUri}");
