@@ -28,7 +28,7 @@ internal class ImageDownloader
 
         ImageStarted?.Invoke($"File {FileName} downloaded started!");
 
-        await myWebClient.DownloadFileTaskAsync( Uri, FileName );
+        await myWebClient.DownloadFileTaskAsync(Uri, FileName);
 
         ImageCompleted?.Invoke($"File {FileName} download completed!");
     }
