@@ -84,8 +84,8 @@ while(true)
 {
     Console.WriteLine("\nPress \"A\" to exit or any other key to check the download status\n");
 
-    var command = Console.Read();
-    if(command == 'A')
+    var command = Console.ReadLine();
+    if(command == "A")
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\n --- Exit! ---");
