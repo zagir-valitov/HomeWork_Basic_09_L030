@@ -69,20 +69,6 @@ imageDownloader8.ImageCompleted += DisplayCompletedMessage;
 imageDownloader9.ImageCompleted += DisplayCompletedMessage;
 imageDownloader10.ImageCompleted += DisplayCompletedMessage;
 
-/*
-Task task1 = Task.Run(() =>
-{
-    imageDownloader1?.Download();
-});
-Task task2 = Task.Run(() =>
-{
-    imageDownloader2?.Download();
-});
-Task task3 = Task.Run(() =>
-{
-    imageDownloader3?.Download();
-});
-*/
 var task1 = imageDownloader1.Download();
 var task2 = imageDownloader2.Download();
 var task3 = imageDownloader3.Download();
@@ -93,10 +79,6 @@ var task7 = imageDownloader7.Download();
 var task8 = imageDownloader8.Download();
 var task9 = imageDownloader9.Download();
 var task10 = imageDownloader10.Download();
-
-//await task1;
-//await task2;
-//await task3;
 
 while(true)
 {
@@ -133,23 +115,8 @@ while(true)
 
         Console.WriteLine(statusString);
         statusString.Remove(status.Length, statusString.Length - status.Length);
-        /*
-        Console.WriteLine($"File: {imageDownloader1.FileName} - Download is completed: {task1.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader2.FileName} - Download is completed: {task2.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader3.FileName} - Download is completed: {task3.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader4.FileName} - Download is completed: {task4.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader5.FileName} - Download is completed: {task5.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader6.FileName} - Download is completed: {task6.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader7.FileName} - Download is completed: {task7.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader8.FileName} - Download is completed: {task8.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader9.FileName} - Download is completed: {task9.IsCompleted}");
-        Console.WriteLine($"File: {imageDownloader10.FileName} - Download is completed: {task10.IsCompleted}\n");
-        */
     }
 }
-//await task1;
-//await task2;
-//await task3;
 
 void DisplayStartedMessage(string message)
 {
