@@ -21,7 +21,7 @@ internal class ImageDownloader
         Uri = uri;
     }
 
-    public async Task Download()
+    public async Task DownloadAsync()
     {
         FileName = $"picture_{Count++}.jpg";
         var myWebClient = new WebClient();
