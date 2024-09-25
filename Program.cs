@@ -69,16 +69,16 @@ imageDownloader8.ImageCompleted += DisplayCompletedMessage;
 imageDownloader9.ImageCompleted += DisplayCompletedMessage;
 imageDownloader10.ImageCompleted += DisplayCompletedMessage;
 
-var task1 = imageDownloader1.Download();
-var task2 = imageDownloader2.Download();
-var task3 = imageDownloader3.Download();
-var task4 = imageDownloader4.Download();
-var task5 = imageDownloader5.Download();
-var task6 = imageDownloader6.Download();
-var task7 = imageDownloader7.Download();
-var task8 = imageDownloader8.Download();
-var task9 = imageDownloader9.Download();
-var task10 = imageDownloader10.Download();
+var task1 = imageDownloader1.DownloadAsync();
+var task2 = imageDownloader2.DownloadAsync();
+var task3 = imageDownloader3.DownloadAsync();
+var task4 = imageDownloader4.DownloadAsync();
+var task5 = imageDownloader5.DownloadAsync();
+var task6 = imageDownloader6.DownloadAsync();
+var task7 = imageDownloader7.DownloadAsync();
+var task8 = imageDownloader8.DownloadAsync();
+var task9 = imageDownloader9.DownloadAsync();
+var task10 = imageDownloader10.DownloadAsync();
 
 while(true)
 {
