@@ -24,12 +24,11 @@ internal class ImageDownloader
     public async Task DownloadAsync()
     {
         FileName = $"picture_{Count++}.jpg";
-        var myWebClient = new WebClient();
-
         ImageStarted?.Invoke($"File {FileName} downloaded started!");
-
-        await myWebClient.DownloadFileTaskAsync(Uri, FileName);
-
+        using (var myWebClient = new WebClient())
+        {
+            await myWebClient.DownloadFileTaskAsync(Uri, FileName);
+        }
         ImageCompleted?.Invoke($"File {FileName} download completed!");
     }
 }
