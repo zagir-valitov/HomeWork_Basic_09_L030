@@ -9,9 +9,11 @@ namespace HomeWork_Basic_09_L030;
 
 internal class ImageDownloader
 {
-    public delegate void DownloadHandler(string message);
-    public event DownloadHandler? ImageStartedNotify;
-    public event DownloadHandler? ImageCompletedNotify;
+    //public delegate void DownloadHandler(string message);
+    //public event DownloadHandler? ImageStartedNotify;
+    //public event DownloadHandler? ImageCompletedNotify;
+    public event Action<string>? ImageStartedNotify;
+    public event Action<string>? ImageCompletedNotify;
     public static int Count = 1;
     public string Uri;
     public string? FileName;
