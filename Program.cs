@@ -47,27 +47,27 @@ var imageDownloader10 = new ImageDownloader(
     "176263-otrazhenie-zhitel_zapada-lofoten-oblako-voda-" +
     "1920x1080.jpg");
 
-imageDownloader1.ImageStarted += DisplayStartedMessage;
-imageDownloader2.ImageStarted += DisplayStartedMessage;
-imageDownloader3.ImageStarted += DisplayStartedMessage;
-imageDownloader4.ImageStarted += DisplayStartedMessage;
-imageDownloader5.ImageStarted += DisplayStartedMessage;
-imageDownloader6.ImageStarted += DisplayStartedMessage;
-imageDownloader7.ImageStarted += DisplayStartedMessage;
-imageDownloader8.ImageStarted += DisplayStartedMessage;
-imageDownloader9.ImageStarted += DisplayStartedMessage;
-imageDownloader10.ImageStarted += DisplayStartedMessage;
+imageDownloader1.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader2.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader3.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader4.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader5.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader6.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader7.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader8.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader9.ImageStartedNotify += DisplayStartedMessage;
+imageDownloader10.ImageStartedNotify += DisplayStartedMessage;
 
-imageDownloader1.ImageCompleted += DisplayCompletedMessage;
-imageDownloader2.ImageCompleted += DisplayCompletedMessage;
-imageDownloader3.ImageCompleted += DisplayCompletedMessage;
-imageDownloader4.ImageCompleted += DisplayCompletedMessage;
-imageDownloader5.ImageCompleted += DisplayCompletedMessage;
-imageDownloader6.ImageCompleted += DisplayCompletedMessage;
-imageDownloader7.ImageCompleted += DisplayCompletedMessage;
-imageDownloader8.ImageCompleted += DisplayCompletedMessage;
-imageDownloader9.ImageCompleted += DisplayCompletedMessage;
-imageDownloader10.ImageCompleted += DisplayCompletedMessage;
+imageDownloader1.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader2.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader3.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader4.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader5.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader6.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader7.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader8.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader9.ImageCompletedNotify += DisplayCompletedMessage;
+imageDownloader10.ImageCompletedNotify += DisplayCompletedMessage;
 
 var task1 = imageDownloader1.DownloadAsync();
 var task2 = imageDownloader2.DownloadAsync();

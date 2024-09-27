@@ -10,8 +10,8 @@ namespace HomeWork_Basic_09_L030;
 internal class ImageDownloader
 {
     public delegate void DownloadHandler(string message);
-    public event DownloadHandler? ImageStarted;
-    public event DownloadHandler? ImageCompleted;
+    public event DownloadHandler? ImageStartedNotify;
+    public event DownloadHandler? ImageCompletedNotify;
     public static int Count = 1;
     public string Uri;
     public string? FileName;
@@ -24,11 +24,11 @@ internal class ImageDownloader
     public async Task DownloadAsync()
     {
         FileName = $"picture_{Count++}.jpg";
-        ImageStarted?.Invoke($"File {FileName} downloaded started!");
+        ImageStartedNotify?.Invoke($"File {FileName} downloaded started!");
         using (var myWebClient = new WebClient())
         {
             await myWebClient.DownloadFileTaskAsync(Uri, FileName);
         }
-        ImageCompleted?.Invoke($"File {FileName} download completed!");
+        ImageCompletedNotify?.Invoke($"File {FileName} download completed!");
     }
 }
