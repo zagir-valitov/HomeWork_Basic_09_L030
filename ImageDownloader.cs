@@ -15,22 +15,17 @@ internal class ImageDownloader
     public event Action<string>? ImageStartedNotify;
     public event Action<string>? ImageCompletedNotify;
     public static int Count = 1;
-    public string Uri;
-    public string? FileName;
-
-    public ImageDownloader(string uri) 
+    public static List<string> DownloadList = [];
+    
+    public async Task DownloadAsync(string uri, string fileName)
     {
-        Uri = uri;
-    }
-
-    public async Task DownloadAsync()
-    {
-        FileName = $"picture_{Count++}.jpg";
-        ImageStartedNotify?.Invoke($"File {FileName} downloaded started!");
+        fileName = $"{fileName}_{Count++}.jpg";
+        DownloadList.Add(fileName);
+        ImageStartedNotify?.Invoke($"File {fileName} downloaded started!");
         using (var myWebClient = new WebClient())
         {
-            await myWebClient.DownloadFileTaskAsync(Uri, FileName);
+            await myWebClient.DownloadFileTaskAsync(uri, fileName);
         }
-        ImageCompletedNotify?.Invoke($"File {FileName} download completed!");
+        ImageCompletedNotify?.Invoke($"File {fileName} download completed!");
     }
 }
