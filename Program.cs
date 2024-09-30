@@ -69,9 +69,9 @@ while (true)
         break; 
     }
     
-    var tasks = new List<Task>(){ task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
+    var taskList = new List<Task>(){ task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
     
-    if (Task.WhenAll(tasks).IsCompleted)
+    if (Task.WhenAll(taskList).IsCompleted)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("All files downloaded!!!");
@@ -79,9 +79,9 @@ while (true)
     }
     else
     {
-        for (int i = 0; i < tasks.Count; i++)
+        for (int i = 0; i < taskList.Count; i++)
         {
-            Console.WriteLine($"File {ImageDownloader.DownloadList[i]} - Download is completed: {tasks[i].IsCompleted}");
+            Console.WriteLine($"File {ImageDownloader.DownloadList[i]} - Download is completed: {taskList[i].IsCompleted}");
         }
     }    
 }
