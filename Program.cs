@@ -69,9 +69,9 @@ while (true)
         break; 
     }
     
-    var tasksList = new List<Task>(){ task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
+    var tasks = new List<Task>(){ task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
     
-    if (Task.WhenAll(tasksList).IsCompleted)
+    if (Task.WhenAll(tasks).IsCompleted)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("All files downloaded!!!");
@@ -79,12 +79,11 @@ while (true)
     }
     else
     {
-        for (int i = 0; i < tasksList.Count; i++)
+        for (int i = 0; i < tasks.Count; i++)
         {
-            Console.WriteLine($"File {ImageDownloader.DownloadList[i]} - Download is completed: {tasksList[i].IsCompleted}");
+            Console.WriteLine($"File {ImageDownloader.DownloadList[i]} - Download is completed: {tasks[i].IsCompleted}");
         }
-    }
-    
+    }    
 }
 
 void DisplayStartedMessage(string message)
