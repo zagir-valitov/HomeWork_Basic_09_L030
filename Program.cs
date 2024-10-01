@@ -53,6 +53,8 @@ var task10 = imageDownloader.DownloadAsync(
     "176263-otrazhenie-zhitel_zapada-lofoten-oblako-voda-" +
     "1920x1080.jpg", fileName);
 
+var taskList = new List<Task>() { task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
+
 while (true)
 {
     Console.WriteLine("\nPress \"A\" to exit or any other key to check the download status\n");
@@ -67,8 +69,6 @@ while (true)
         Console.ResetColor();
         return;
     }
-
-    var taskList = new List<Task>() { task1, task2, task3, task4, task5, task6, task7, task8, task9, task10 };
 
     if (Task.WhenAll(taskList).IsCompleted)
     {
